@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+    <JarScanner scanClassPath="false" />
+    <CookieProcessor sameSiteCookies="lax" />
+
+    <!-- PostgreSQL -->
+    <Resource name="jdbc/proyectopooDS" auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost/proyectodb"
+              username="postgres"
+              password="password"
+              maxTotal="20"
+              maxIdle="5"
+              maxWaitMillis="10000"/>
+
+</Context>

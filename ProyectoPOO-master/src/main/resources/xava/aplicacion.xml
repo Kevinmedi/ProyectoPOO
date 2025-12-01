@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE aplicacion SYSTEM "dtds/aplicacion.dtd">
+
+<aplicacion nombre="sistema_de_Control_de_Asistencia_para_Empleados">
+
+    <!-- Módulo por defecto -->
+    <modulo-defecto>
+        <controlador nombre="Typical"/>
+    </modulo-defecto>
+
+    <!-- Módulo específico para Empleado -->
+    <modulo nombre="Empleado" modelo="Empleado">
+        <controladores-nombres>
+            <controlador-nombre>Empleado</controlador-nombre>
+        </controladores-nombres>
+    </modulo>
+
+</aplicacion>

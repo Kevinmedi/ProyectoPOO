@@ -1,0 +1,52 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="EmpleadosList" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11111111-2222-3333-4444-555555555555">
+	<field name="codigo" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<title height="48">
+		<element kind="staticText" uuid="3ebba58e-fa86-46fe-878b-4a28a90631d2" x="0" y="10" width="555" height="20" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[REPORTE DE EMPLEADOS]]></text>
+		</element>
+		<element kind="staticText" uuid="edd02caa-d59c-4be0-9043-64acc476a0f6" x="220" y="5" width="100" height="30">
+			<text><![CDATA[Reporte Empleados]]></text>
+		</element>
+	</title>
+	<columnHeader height="20">
+		<element kind="staticText" uuid="2f230fcb-c3a7-4fec-ad22-2d954c1d6005" x="0" y="0" width="80" height="20" bold="true">
+			<text><![CDATA[CÓDIGO]]></text>
+		</element>
+		<element kind="staticText" uuid="558c294d-ffd8-4675-9c31-267dcde2c0c5" x="80" y="0" width="140" height="20" bold="true">
+			<text><![CDATA[NOMBRE]]></text>
+		</element>
+		<element kind="staticText" uuid="2f3fefc4-a759-4497-abde-8b994705df33" x="220" y="0" width="140" height="20" bold="true">
+			<text><![CDATA[APELLIDO]]></text>
+		</element>
+		<element kind="staticText" uuid="f25a8d08-a8cc-4561-9916-c7ea9abdd076" x="360" y="0" width="100" height="20" bold="true">
+			<text><![CDATA[CARGO]]></text>
+		</element>
+		<element kind="staticText" uuid="0ec11f2f-3c2b-4fb9-8cf9-2e380c45d00f" x="460" y="0" width="95" height="20" bold="true">
+			<text><![CDATA[ESTADO]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="18">
+			<element kind="textField" uuid="9b948667-0ec2-43bf-82a2-ac21c2b6bb12" x="0" y="0" width="80" height="18">
+				<expression><![CDATA[$F{codigo}]]></expression>
+			</element>
+			<element kind="textField" uuid="4eb7a7bd-a16d-40b9-808b-2759c5b42a9a" x="80" y="0" width="140" height="18">
+				<expression><![CDATA[$F{nombre}]]></expression>
+			</element>
+			<element kind="textField" uuid="f22f6075-474f-43da-a384-78193716d788" x="220" y="0" width="140" height="18">
+				<expression><![CDATA[$F{apellido}]]></expression>
+			</element>
+			<element kind="textField" uuid="f8ec827d-ea26-46d5-b242-c83b418eb5db" x="360" y="0" width="100" height="18">
+				<expression><![CDATA[$F{cargo}]]></expression>
+			</element>
+			<element kind="textField" uuid="7fb60dd9-82d4-4ce6-9eb1-7015043372a8" x="460" y="0" width="95" height="18">
+				<expression><![CDATA[$F{estado}]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

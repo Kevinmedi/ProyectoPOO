@@ -4,16 +4,15 @@
 
 <aplicacion nombre="sistema_de_Control_de_Asistencia_para_Empleados">
 
-    <!-- Módulo por defecto -->
     <modulo-defecto>
         <controlador nombre="Typical"/>
     </modulo-defecto>
 
-    <!-- Módulo específico para Empleado -->
-    <modulo nombre="Empleado" modelo="Empleado">
-        <controladores-nombres>
-            <controlador-nombre>Empleado</controlador-nombre>
-        </controladores-nombres>
+
+    <modulo nombre="Asistencia">
+        <modelo nombre="Asistencia"/>
+        <controlador nombre="Typical"/>
+        <controlador nombre="Asistencia"/>
     </modulo>
 
 </aplicacion>

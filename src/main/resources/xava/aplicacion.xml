@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE aplicacion SYSTEM "dtds/aplicacion.dtd">
+
+<aplicacion nombre="CreativaAsistencia">
+
+    <!--
+    Un módulo por defecto se asume para cada
+    controlador en <modulo-defecto/>
+    -->
+    <modulo-defecto>
+        <controlador nombre="Typical"/>
+    </modulo-defecto>
+
+</aplicacion>

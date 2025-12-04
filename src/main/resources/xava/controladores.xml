@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
+
+<controladores>
+
+    <!-- Controlador específico para el módulo Empleado -->
+    <controlador nombre="Empleado">
+
+        <!-- Hereda todas las acciones típicas de OpenXava -->
+        <hereda-de controlador="Typical"/>
+
+        <!-- Acción que lanza el reporte Jasper -->
+        <accion
+                nombre="imprimirEmpleados"
+                clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirEmpleadosAction"
+                modo="list"
+                icono="printer"
+                etiqueta="Imprimir empleados"/>
+    </controlador>
+
+</controladores>

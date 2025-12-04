@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport name="EmpleadosList" language="java" pageWidth="595" pageHeight="842" columnWidth="555"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <!-- Campos disponibles -->
+    <field name="codigo" class="java.lang.String"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="apellido" class="java.lang.String"/>
+    <field name="cargo" class="java.lang.Enum"/>
+
+    <!-- Título principal -->
+    <title>
+        <band height="70">
+            <staticText>
+                <reportElement x="0" y="30" width="555" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Creativa]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="35" width="555" height="25"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="14" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[Registro de empleados]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Encabezado de columnas -->
+    <columnHeader>
+        <band height="25">
+            <line>
+                <reportElement x="0" y="24" width="555" height="1"/>
+            </line>
+            <staticText>
+                <reportElement x="0" y="0" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[CÓDIGO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="0" width="150" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[NOMBRE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="230" y="0" width="150" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[APELLIDO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="380" y="0" width="175" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[CARGO]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detalle de cada fila -->
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="80" height="20"/>
+                <textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="80" y="0" width="150" height="20"/>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="230" y="0" width="150" height="20"/>
+                <textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="380" y="0" width="175" height="20"/>
+                <textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>

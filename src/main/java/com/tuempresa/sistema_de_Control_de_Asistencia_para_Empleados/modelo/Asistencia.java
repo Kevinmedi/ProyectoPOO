@@ -20,7 +20,7 @@ import java.time.LocalTime;
                 " empleado; estado; fechaHora" +
                 "}"
 )
-@Tab(properties = "empleado, estado, fechaHora")
+@Tab(properties = "empleado.codigo, empleado.nombre, estado, fechaHora")
 public class Asistencia {
 
     @Id
@@ -31,6 +31,7 @@ public class Asistencia {
 
     @ManyToOne(optional = false)
     @Required(message = "Debe seleccionar un empleado.")
+    @DescriptionsList(descriptionProperties="codigo, nombre, apellido")
     private Empleado empleado;
 
     @Column

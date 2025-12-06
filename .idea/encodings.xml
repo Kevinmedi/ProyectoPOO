@@ -3,7 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/recursos/LogoCreat.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/recursos/LogoCreat.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/reports/AsistenciaRangoFechas.jrxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/reports/HorasExtrasPorEmpleado.jrxml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/reports/Reporte.jrxml" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/reports/ReporteAsistencia.jrxml" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/reports/RetrasosEmpleados.jrxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/reports/logo.jpg" charset="UTF-8" />
   </component>
 </project>

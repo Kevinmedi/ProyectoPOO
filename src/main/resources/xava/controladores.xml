@@ -1,22 +1,46 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
-<!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
-
 <controladores>
 
-    <!-- Controlador específico para el módulo Empleado -->
+    <!-- Controlador especÃ­fico para el mÃ³dulo Empleado -->
     <controlador nombre="Empleado">
-
-        <!-- Hereda todas las acciones típicas de OpenXava -->
         <hereda-de controlador="Typical"/>
-
-        <!-- Acción que lanza el reporte Jasper -->
         <accion
                 nombre="imprimirEmpleados"
                 clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirEmpleadosAction"
                 modo="list"
                 icono="printer"
                 etiqueta="Imprimir empleados"/>
+    </controlador>
+
+    <!-- Controlador especÃ­fico para el mÃ³dulo Asistencia -->
+    <controlador nombre="Asistencia">
+        <hereda-de controlador="Typical"/>
+        <accion
+                nombre="imprimirAsistencia"
+                clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirAsistenciaAction"
+                modo="list"
+                icono="printer"
+                etiqueta="Imprimir asistencia"/>
+
+        <accion
+                nombre="imprimirAsistenciaRango"
+                clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirAsistenciaRangoFechasAction"
+                modo="list"
+                icono="printer"
+                etiqueta="Asistencia (rango fechas)"/>
+
+        <accion
+                nombre="imprimirHorasExtras"
+                clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirHorasExtrasPorEmpleadoAction"
+                modo="list"
+                icono="printer"
+                etiqueta="Horas extra por empleado"/>
+
+        <accion
+                nombre="imprimirRetrasos"
+                clase="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.acciones.ImprimirRetrasosAction"
+                modo="list"
+                icono="printer"
+                etiqueta="Retrasos de empleados"/>
     </controlador>
 
 </controladores>

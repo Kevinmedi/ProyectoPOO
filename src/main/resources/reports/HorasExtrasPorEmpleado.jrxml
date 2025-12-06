@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="HorasExtrasPorEmpleado" language="java"
+              pageWidth="595" pageHeight="842"
+              columnWidth="555" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <!-- Parámetros de rango (opcional) -->
+    <parameter name="fechaDesde" class="java.util.Date"/>
+    <parameter name="fechaHasta" class="java.util.Date"/>
+
+    <!-- Campos del DTO / query agrupada -->
+    <field name="codigo"          class="java.lang.String"/>
+    <field name="nombreCompleto"  class="java.lang.String"/>
+    <field name="totalHorasExtras" class="java.lang.Double"/>
+    <field name="diasConExtras"   class="java.lang.Integer"/>
+
+    <!-- ===== TÍTULO ===== -->
+    <title>
+        <band height="90">
+
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="5" width="60" height="40"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[
+                    this.getClass().getClassLoader().getResourceAsStream("reports/logo.jpg")
+                ]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="70" y="5" width="485" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE HORAS EXTRA POR EMPLEADO]]></text>
+            </staticText>
+
+            <!-- Rango de fechas -->
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="70" y="40" width="200" height="18"/>
+                <textFieldExpression><![CDATA[
+                    "Desde: " + ($P{fechaDesde} == null ? "-" : new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{fechaDesde}))
+                ]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="270" y="40" width="200" height="18"/>
+                <textFieldExpression><![CDATA[
+                    "Hasta: " + ($P{fechaHasta} == null ? "-" : new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{fechaHasta}))
+                ]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="350" y="60" width="205" height="18"/>
+                <textElement textAlignment="Right">
+                    <font size="9" isItalic="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </title>
+
+    <!-- ===== CABECERA ===== -->
+    <columnHeader>
+        <band height="22">
+
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="20"
+                               mode="Opaque" backcolor="#E0E0E0"/>
+            </rectangle>
+
+            <staticText><reportElement x="0"   y="0" width="80"  height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Código]]></text></staticText>
+            <staticText><reportElement x="80"  y="0" width="220" height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Empleado]]></text></staticText>
+            <staticText><reportElement x="300" y="0" width="130" height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Horas extra (totales)]]></text></staticText>
+            <staticText><reportElement x="430" y="0" width="125" height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Días con extra]]></text></staticText>
+
+        </band>
+    </columnHeader>
+
+    <!-- ===== DETALLE ===== -->
+    <detail>
+        <band height="18">
+
+            <textField>
+                <reportElement x="0" y="0" width="80" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="80" y="0" width="220" height="18"/>
+                <textElement textAlignment="Left"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{nombreCompleto}]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="#0.00">
+                <reportElement x="300" y="0" width="130" height="18"/>
+                <textElement textAlignment="Right"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{totalHorasExtras}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="430" y="0" width="125" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{diasConExtras}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+    <!-- ===== PIE ===== -->
+    <pageFooter>
+        <band height="25">
+            <line><reportElement x="0" y="0" width="555" height="1"/></line>
+
+            <staticText>
+                <reportElement x="0" y="5" width="250" height="18"/>
+                <textElement><font size="8" isItalic="true"/></textElement>
+                <text><![CDATA[Creativa Asistencia - Horas extra por empleado]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="405" y="5" width="150" height="18"/>
+                <textElement textAlignment="Right"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>

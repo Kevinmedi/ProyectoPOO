@@ -57,5 +57,12 @@ public class Empleado {
     @Column(length = 50)
     @EmailList
     private String email;
+
+    public String getCargoTexto() {
+        if (cargo == null) return "";
+        String texto = cargo.toString().replace("_", " ").toLowerCase();
+        return texto.substring(0, 1).toUpperCase() + texto.substring(1);
+    }
+
 }
 

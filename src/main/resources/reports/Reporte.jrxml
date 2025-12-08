@@ -1,82 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport name="EmpleadosList" language="java" pageWidth="595" pageHeight="842" columnWidth="555"
-              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
-    <!-- Campos disponibles -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="EmpleadosList" language="java"
+              pageWidth="595" pageHeight="842"
+              columnWidth="555" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <!-- ====== CAMPOS DEL BEAN Empleado ====== -->
     <field name="codigo" class="java.lang.String"/>
     <field name="nombre" class="java.lang.String"/>
     <field name="apellido" class="java.lang.String"/>
-    <field name="cargo" class="java.lang.Enum"/>
+    <!-- tipo REAL del campo en la entidad -->
+    <field name="cargo" class="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.modelo.EmpleadoCargo"/>
 
-    <!-- Título principal -->
+    <!-- =============== TÍTULO =============== -->
     <title>
-        <band height="70">
+        <band height="80">
+
+            <!-- Logo -->
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="5" width="60" height="40"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[
+                    this.getClass().getClassLoader().getResourceAsStream("reports/logo.jpg")
+                ]]></imageExpression>
+            </image>
+
+            <!-- Nombre de la empresa -->
             <staticText>
-                <reportElement x="0" y="30" width="555" height="25"/>
+                <reportElement x="70" y="5" width="485" height="30"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="20" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Creativa]]></text>
+                <text><![CDATA[CREATIVA]]></text>
             </staticText>
+
+            <!-- Subtítulo -->
             <staticText>
-                <reportElement x="0" y="35" width="555" height="25"/>
+                <reportElement x="70" y="35" width="485" height="20"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font size="14" isItalic="true"/>
+                    <font size="13" isItalic="true"/>
                 </textElement>
                 <text><![CDATA[Registro de empleados]]></text>
             </staticText>
+
+            <!-- Fecha/hora de impresión -->
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="350" y="55" width="205" height="18"/>
+                <textElement textAlignment="Right">
+                    <font size="9" isItalic="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
         </band>
     </title>
 
-    <!-- Encabezado de columnas -->
+    <!-- =============== CABECERA =============== -->
     <columnHeader>
-        <band height="25">
-            <line>
-                <reportElement x="0" y="24" width="555" height="1"/>
-            </line>
+        <band height="22">
+
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="20"
+                               mode="Opaque" backcolor="#E0E0E0"/>
+            </rectangle>
+
             <staticText>
                 <reportElement x="0" y="0" width="80" height="20"/>
-                <textElement><font isBold="true"/></textElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10"/>
+                </textElement>
                 <text><![CDATA[CÓDIGO]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="80" y="0" width="150" height="20"/>
-                <textElement><font isBold="true"/></textElement>
+                <reportElement x="80" y="0" width="160" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10"/>
+                </textElement>
                 <text><![CDATA[NOMBRE]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="230" y="0" width="150" height="20"/>
-                <textElement><font isBold="true"/></textElement>
+                <reportElement x="240" y="0" width="160" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10"/>
+                </textElement>
                 <text><![CDATA[APELLIDO]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="380" y="0" width="175" height="20"/>
-                <textElement><font isBold="true"/></textElement>
+                <reportElement x="400" y="0" width="155" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10"/>
+                </textElement>
                 <text><![CDATA[CARGO]]></text>
             </staticText>
+
         </band>
     </columnHeader>
 
-    <!-- Detalle de cada fila -->
+    <!-- =============== DETALLE (FILAS) =============== -->
     <detail>
-        <band height="20">
+        <band height="18">
+
+            <!-- Código -->
             <textField>
-                <reportElement x="0" y="0" width="80" height="20"/>
+                <reportElement x="0" y="0" width="80" height="18"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
             </textField>
+
+            <!-- Nombre -->
             <textField>
-                <reportElement x="80" y="0" width="150" height="20"/>
+                <reportElement x="80" y="0" width="160" height="18"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
+
+            <!-- Apellido -->
             <textField>
-                <reportElement x="230" y="0" width="150" height="20"/>
+                <reportElement x="240" y="0" width="160" height="18"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
             </textField>
-            <textField>
-                <reportElement x="380" y="0" width="175" height="20"/>
-                <textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+
+            <!-- Cargo: enum → texto legible -->
+            <textField isBlankWhenNull="true">
+                <reportElement x="400" y="0" width="155" height="18"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[
+                    $F{cargo} == null
+                        ? ""
+                        : $F{cargo}.toString().replace("_", " ")
+                ]]></textFieldExpression>
             </textField>
+
         </band>
     </detail>
+
+    <!-- =============== PIE DE PÁGINA =============== -->
+    <pageFooter>
+        <band height="25">
+
+            <line>
+                <reportElement x="0" y="0" width="555" height="1"/>
+            </line>
+
+            <staticText>
+                <reportElement x="0" y="5" width="250" height="18"/>
+                <textElement>
+                    <font size="8" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[Creativa Asistencia - Registro de empleados]]></text>
+            </staticText>
+
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="250" y="5" width="155" height="18"/>
+                <textElement textAlignment="Center">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="405" y="5" width="150" height="18"/>
+                <textElement textAlignment="Right">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[
+                    "Página " + $V{PAGE_NUMBER}
+                ]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </pageFooter>
 
 </jasperReport>

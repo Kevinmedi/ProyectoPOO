@@ -4,12 +4,23 @@
 
 <aplicacion nombre="CreativaAsistencia">
 
-    <!--
-    Un módulo por defecto se asume para cada
-    controlador en <modulo-defecto/>
-    -->
+    <!-- Módulo por defecto -->
     <modulo-defecto>
         <controlador nombre="Typical"/>
     </modulo-defecto>
+
+    <!-- MÓDULO EMPLEADO -->
+    <modulo nombre="Empleado">
+        <modelo nombre="Empleado"/>
+        <!-- Usa el controlador 'Empleado' definido en controllers.xml -->
+        <controlador nombre="Empleado"/>
+    </modulo>
+
+    <!-- MÓDULO ASISTENCIA -->
+    <modulo nombre="Asistencia">
+        <modelo nombre="Asistencia"/>
+        <!-- Usa el controlador 'Asistencia' definido en controllers.xml -->
+        <controlador nombre="Asistencia"/>
+    </modulo>
 
 </aplicacion>

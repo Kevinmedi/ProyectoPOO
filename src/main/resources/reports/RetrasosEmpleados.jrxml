@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="RetrasosEmpleados" language="java"
+              pageWidth="595" pageHeight="842"
+              columnWidth="555" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <!-- Campos de Asistencia -->
+    <field name="empleado" class="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.modelo.Empleado"/>
+    <field name="estado" class="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.modelo.EstadoAsistencia"/>
+    <field name="fechaHora" class="java.time.LocalDateTime"/>
+    <field name="clasificacion" class="com.tuempresa.sistema_de_Control_de_Asistencia_para_Empleados.modelo.ClasificacionAsistencia"/>
+
+    <!-- ===== TÍTULO ===== -->
+    <title>
+        <band height="80">
+
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="5" width="60" height="40"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[
+                    this.getClass().getClassLoader().getResourceAsStream("reports/logo.jpg")
+                ]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="70" y="5" width="485" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE RETRASOS DE EMPLEADOS]]></text>
+            </staticText>
+
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="350" y="50" width="205" height="18"/>
+                <textElement textAlignment="Right">
+                    <font size="9" isItalic="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </title>
+
+    <!-- ===== CABECERA ===== -->
+    <columnHeader>
+        <band height="22">
+
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="20"
+                               mode="Opaque" backcolor="#E0E0E0"/>
+            </rectangle>
+
+            <staticText><reportElement x="0"   y="0" width="80"  height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Código]]></text></staticText>
+            <staticText><reportElement x="80"  y="0" width="200" height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Empleado]]></text></staticText>
+            <staticText><reportElement x="280" y="0" width="120" height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Fecha / Hora]]></text></staticText>
+            <staticText><reportElement x="400" y="0" width="80"  height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Estado]]></text></staticText>
+            <staticText><reportElement x="480" y="0" width="75"  height="20"/><textElement textAlignment="Center"><font isBold="true" size="10"/></textElement><text><![CDATA[Clasif.]]></text></staticText>
+
+        </band>
+    </columnHeader>
+
+    <!-- ===== DETALLE ===== -->
+    <detail>
+        <band height="18">
+
+            <textField>
+                <reportElement x="0" y="0" width="80" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{empleado}.getCodigo()]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="80" y="0" width="200" height="18"/>
+                <textElement textAlignment="Left"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[
+                    $F{empleado}.getNombre() + " " + $F{empleado}.getApellido()
+                ]]></textFieldExpression>
+            </textField>
+
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="280" y="0" width="120" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[
+                    java.sql.Timestamp.valueOf($F{fechaHora})
+                ]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="400" y="0" width="80" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{estado}.toString()]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="480" y="0" width="75" height="18"/>
+                <textElement textAlignment="Center"><font size="9"/></textElement>
+                <textFieldExpression><![CDATA[$F{clasificacion}.toString()]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+    <!-- ===== PIE ===== -->
+    <pageFooter>
+        <band height="25">
+            <line><reportElement x="0" y="0" width="555" height="1"/></line>
+
+            <staticText>
+                <reportElement x="0" y="5" width="250" height="18"/>
+                <textElement><font size="8" isItalic="true"/></textElement>
+                <text><![CDATA[Creativa Asistencia - Retrasos de empleados]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="405" y="5" width="150" height="18"/>
+                <textElement textAlignment="Right"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>
